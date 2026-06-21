@@ -6,10 +6,11 @@
   id: Creative
   name: trait-creative-name
   description: trait-creative-desc
-  category: Modifiers
+  category: Quirks
   components:
     - type: AddCrewObjectives
       objectives:
+# All
         - GetMedalCrewObjective
         - InteractWithCrewObjective
         - CollectCansCrewObjective
@@ -21,20 +22,26 @@
         - MoneyCrewObjective
         - PlayChessCrewObjective
 #        - TransferCrewObjective self antaggy
+#Passenger
         - TideCrewObjective
         - GrayChemistCrewObjective
         - GrayCientistCrewObjective
         - GrayCargoCrewObjective
         - GraySurgeonCrewObjective
+# Botanist
         - MedicinalPlantsBotanistCrewObjective
         - WeedBotanistCrewObjective
+# Musician
         - RapBattleCrewObjective
+# Janitor
         - KillRatsCrewObjective
         - RecycleCrewObjective
         - CleanCrewmemberCrewObjective
+# Chaplain
         - MassCrewObjective
         - CreateAReligionCrewObjective
         - IndecisiveReligionCrewObjective
+# Engineer
         - IlluminateMaintsCrewObjective
 #        - MorePowerCrewObjective mt perigoso
         - PTLCrewObjective
@@ -42,15 +49,21 @@
         - UpgradeStationCrewObjective
         - MakeFreezonCrewObjective
         - TEGCrewObjective
+# Security officer
         - GoodSecCrewObjective
+# Warden
         - BackseatSecCrewObjective
         - CleanSecCrewObjective
+# Detective
         - SmokeTestCrewObjective
         - InvestigateCrewObjective
         - DrinkCrewObjective
         - NoirDetectiveCrewObjective
+# Boxer
         - BoxCrewObjective
+# Librarian
         - BoardGameCrewObjective
+# Clown/mime
         - GoodClownCrewObjective
         - SadClownCrewObjective
         - MiserableClownCrewObjective
@@ -62,11 +75,16 @@
         - ClownFriendCrewObjective
         - ActorMimeCrewObjective
         - MiserableMimeCrewObjective
+        - UnsatisfiedClownCrewObjective
+# Lawyer
+        - RehabilitationLawyerCrewObjective
+# Bartender
         - NoDispenserCrewObjective
         - BudgetCutBartenderCrewObjective
         - GetDrunkBartenderCrewObjective
         - RussianRoulleteBartenderCrewObjective
         - ExperimentalBartenderCrewObjective
+# Chef
         - DeliveryChefCrewObjective
         - RestaurantChefCrewObjective
         - MenuChefCrewObjective
@@ -76,22 +94,29 @@
         - UniqueChefCrewObjective
         - UncreativeChefCrewObjective
         - SelectiveChefCrewObjective
+# Cargo tech
         - GamblingCrewObjective
         - MailCrewObjective
+# Salvager/Miner
+        - BuildShipSalvageCrewObjective
+        - KillFaunaCrewObjective
+# Captain
         - ProtectRenaultCrewObjective
+# HOP
         - ProtectIanCrewObjective
+# HOS
         - ProtectShivaObjective
-        - RehabilitationLawyerCrewObjective
         - GoodSecHOSCrewObjective
+# Scientist
         - UpgradeScientistCrewObjective
         - SafeScientistCrewObjective
+# Roboticist
         - AutomationRoboticistCrewObjective
+# Doctor
         - SpeedDoctorCrewObjective
+        - TalkativeDoctorCrewObjective
+#Chemist
         - SmokeChemistCrewObjective
         - ComplicatedChemistCrewObjective
-        - TalkativeDoctorCrewObjective
         - InventiveChemistCrewObjective
-        - UnsatisfiedClownCrewObjective
-        - KillFaunaCrewObjective
-        - BuildShipSalvageCrewObjective
       count: 2
