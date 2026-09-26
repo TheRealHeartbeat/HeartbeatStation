@@ -2,24 +2,55 @@
 <Document>
 # Procedimentos de sentenciamento e tribunal
 
-Quando definindo a sentença por um crime
-
-# Sentenciamento:
+## Sentenciamento:
 Quando definindo a sentença por um crime, o responsável pela designação da sentença deve considerar
 todos os crimes realizados e quaisquer modificadores que podem ser aplicados, e citar eles para o acusado.
+Em seguinte, armazene todos os itens do prisioneiro (Exceto o PDA, rádio ou equipamento essencial para sobrevivência) em um armário.
+Coloque roupas de prisoneiro no criminoso e desalgeme ele dentro da cela.
 
-Penas de crimes diferentes podem acumular.
-
-Crimes com uma mesma cor na tabela de crimes não podem ser combinados a não ser que forem casos separados. Por exemplo,
-não pode sentenciar alguém por invasão ao arsenal e arrombamento ao mesmo tempo pela mesma instância de invasão. 
-
-Se as penas de crimes acumularem para ser mais de 40 minutos, uma audiência formal pode ser realizada para decidir se deve ser aplicado confinamento permanente.
+Caso o criminoso tenha cometido vários crimes diferentes, verifique modificador agravante M-05. 
 
 Essa é a ordem de hierarquia padrão para designação de sentenças:
 - Carcereiro
 - Segurança Chefe
 - Capitão
 - Oficial de Segurança
+
+# Punições
+## Multas
+Se o crime demandar a aplicação de uma multa, o criminoso deve providenciar o ID para o oficial realizando a prisão para ele sacar o dinheiro em um ATM.
+O dinheiro da multa deve ser inserida para a conta do computador de requisições de segurança.
+
+## Confinamento não-permanente
+Confinamento não-permanente pode ser cumprido em uma cela comunitária (genpop) ou em uma cela própria. 
+O temporizador do armário/cela deve ser definido para o tempo da pena. 
+O carcereiro e o guarda prisional devem garantir que os direitos do detento estão sendo atendidos.
+
+## Confinamento permanente
+Confinamento permanente pode ser cumprido em uma cela comunitária ou na prisão permanente.
+O carcereiro e o guarda prisional devem garantir que os direitos do detento estão sendo atendidos.
+
+## Execução
+Se o crime demandar uma execução, o criminoso é permitido escolher como ser executado.
+As escolhas padrão que devem ser apresentadas ao criminoso pelo designador da sentença são as seguintes:
+- Exílio - Ser jogado no espaço. Não pode ser feito se o criminoso for imune aos efeitos de espaçamento.
+- Linha de fogo - Ser executado por armas de longo alcance pelo departamento de segurança.
+- Incineração - Ser queimado vivo por uma estaca de fogo.
+
+O criminoso pode solicitar uma execução alternativa, porém se ela será aceita ou não é decidida pelo designador da sentença.
+Para economizar tempo de empresa, o criminoso tem 3 chances de sugerir um método de execução razoável. Se falhar, o designador
+da sentença decide o método de execução.
+
+Após a execução, os pertences/corpo do criminoso devem ser armazenados ou providenciados ao padre para serem cremados.
+
+## Punições alternativas
+Punições alternativas podem ser sugeridas pelo criminoso ou seu representante legal para reduzir/substituir, e é decisão do designador da sentença aceitar ou não.
+Exemplos incluem: 
+- Serviço comunitário
+- Cota de mineração
+- Humilhação pública
+- Injeção de implante de rastreamento
+
 
 # Julgamentos
 Caso o acusado deseja, ele é permitido solicitar um julgamento para seu caso.

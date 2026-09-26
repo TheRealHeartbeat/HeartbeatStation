@@ -11,7 +11,10 @@
   - 3-xx
   - 4-xx
   - 5-xx
-  - courtprocedures
+  - procedimentosjudiciais
+  - direitosdeprisoneiro
+  - modificadores
+  - contrabando
 
 - type: guideEntry
   id: MartialLaw

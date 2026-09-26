@@ -644,7 +644,25 @@
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/5-XX.xml"
 
 - type: guideEntry
-  id: courtprocedures
+  id: direitosdeprisoneiro
+  name: Direitos de prisioneiro
+  priority: 1
+  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/direitosdeprisoneiro.xml"
+
+- type: guideEntry
+  id: modificadores
+  name: Modificadores
+  priority: 1
+  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/modificadores.xml"
+
+- type: guideEntry
+  id: contrabando
+  name: Manual de Contrabando
+  priority: 1
+  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/contrabando.xml"
+
+- type: guideEntry
+  id: procedimentosjudiciais
   name: Sentenciamento e procedimentos judiciais
   priority: 1
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/sentenciamentoeprocedimentosjudiciais.xml"
@@ -826,12 +844,12 @@
   priority: 1
   text: "/ServerInfo/_Gabystation/Guidebook/SpaceLawSubEntries/invasao.xml"
 
-- type: guideEntry
-  id: contrabando
-  name: guide-entry-space-law-contraband
-  ruleEntry: true
-  priority: 1
-  text: "/ServerInfo/_Gabystation/Guidebook/SpaceLawSubEntries/contrabando.xml"
+#- type: guideEntry Dumont spacelaw 2.0 - isso não é usado e está causando conflict.
+#  id: contrabando
+#  name: guide-entry-space-law-contraband
+#  ruleEntry: true
+#  priority: 1
+#  text: "/ServerInfo/_Gabystation/Guidebook/SpaceLawSubEntries/contrabando.xml"
 
 - type: guideEntry
   id: falsidadeIdeologica
