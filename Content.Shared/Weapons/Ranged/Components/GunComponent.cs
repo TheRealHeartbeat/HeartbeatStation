@@ -275,7 +275,7 @@ public sealed partial class GunComponent : Component
     /// The base value for how fast the projectile moves.
     /// </summary>
     [DataField]
-    public float ProjectileSpeed = 40f; // Goobstation - Fast Bullets
+    public float ProjectileSpeed = 50f; // Dumont station - Fasterer Bullets
 
     /// <summary>
     /// How fast the projectile moves.
