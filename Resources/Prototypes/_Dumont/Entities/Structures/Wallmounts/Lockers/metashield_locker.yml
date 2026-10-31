@@ -145,8 +145,6 @@
     sprite: _Funkystation/Objects/Misc/books.rsi
     layers:
     - state: corporate-secrets
-#  - type: GuideHelp
-#    guides:
-#    - CommandSOP
-#    - CommandTrainingManual
-#    - OrderOfSuccession
+  - type: GuideHelp
+    guides:
+    - CorporateSecrets
