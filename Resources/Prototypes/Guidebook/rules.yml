@@ -1075,7 +1075,7 @@
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SpaceLawSubEntries/impulsosautodestrutivos.xml"
 
 - type: guideEntry
-  id: incitando revolta
+  id: incitandorevolta
   name: Incitando Revolta
   ruleEntry: true
   priority: 1
