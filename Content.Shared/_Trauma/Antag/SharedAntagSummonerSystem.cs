@@ -2,20 +2,18 @@
 
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Cargo;
 using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Station;
 using Robust.Shared.Timing;
 
-namespace Content.Trauma.Shared.Antag;
+namespace Content.Shared._Trauma.Antag;
 
 public abstract class SharedAntagSummonerSystem : EntitySystem
 {
     [Dependency] private readonly AccessReaderSystem _access = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedCargoSystem _cargo = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStationSystem _station = default!;
 
@@ -65,11 +63,10 @@ public abstract class SharedAntagSummonerSystem : EntitySystem
         _adminLog.Add(LogType.InteractHand, LogImpact.High, $"{ToPrettyString(user):user} summoned an antag with {ToPrettyString(ent):used}!");
         _popup.PopupClient("You pressed the red button...", ent, user, PopupType.LargeCaution);
 
-        SummonAntag(ent);
-        _cargo.TryAdjustBankAccount(station, ent.Comp.Account, ent.Comp.Reward);
+        SummonAntag(ent, station);
     }
 
-    protected virtual void SummonAntag(Entity<AntagSummonerComponent> ent)
+    protected virtual void SummonAntag(Entity<AntagSummonerComponent> ent, EntityUid station)
     {
         // not predicted lol
     }

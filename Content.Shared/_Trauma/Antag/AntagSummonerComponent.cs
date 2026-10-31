@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Trauma.Shared.Antag;
+namespace Content.Shared._Trauma.Antag;
 
 /// <summary>
 /// Lets security summon a random antag if all the antags died to prevent chudshift.

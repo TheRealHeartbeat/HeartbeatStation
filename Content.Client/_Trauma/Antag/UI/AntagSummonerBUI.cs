@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Trauma.Shared.Antag;
+using Content.Shared._Trauma.Antag;
 using Robust.Client.UserInterface;
 
-namespace Content.Trauma.Client.Antag.UI;
+namespace Content.Client._Trauma.Antag.UI;
 
 public sealed class AntagSummonerBUI : BoundUserInterface
 {
