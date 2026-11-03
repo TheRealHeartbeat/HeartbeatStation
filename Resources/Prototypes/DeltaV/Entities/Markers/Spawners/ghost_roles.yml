@@ -1,0 +1,29 @@
+- type: entity # Part of ListeningPost
+  categories: [ Spawner ]
+  parent: BaseAntagSpawner
+  name: Spawn Point Ghost Syndicate Listener
+  id: SpawnPointGhostSyndicateListener
+  components:
+  - type: GhostRole
+    name: ghost-role-information-listeningop-name
+    description: ghost-role-information-listeningop-description
+    rules: ghost-role-information-listeningop-rules
+    mindRoles:
+    - MindRoleListeningPost
+    requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
+    - !type:OverallPlaytimeRequirement
+      time: 259200 # 72 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 40000 # 11.1 hours
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 40000 # 11.1 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 40000 # 11.1 hours
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
+        state: icon_alt

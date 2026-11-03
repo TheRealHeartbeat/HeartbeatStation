@@ -18,6 +18,7 @@ using Content.Shared.CCVar;
 using Content.Server.GameTicking;
 using System.Linq;
 using Content.Shared.Light;
+using Content.Server._Dumont.StationTraits; // Dumont
 
 namespace Content.Server.Time
 {
@@ -31,6 +32,7 @@ namespace Content.Server.Time
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly PoweredLightSystem? _lightSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private StationModifierRuleSystem _stationModifiers = default!; // Dumont
 
         private int _currentHour;
         private string? _hexColor = "#FFFFFF";
@@ -120,7 +122,13 @@ namespace Content.Server.Time
 
                     foreach (var light in comp.BulbList.ToList())
                     {
-                        var bulbUid = _lightSystem!.GetBulb(light, light.Comp);
+                        if (!EntityManager.TryGetComponent<PoweredLightComponent>(light, out var poweredLight))
+                        {
+                            comp.BulbList.Remove(light);
+                            continue;
+                        }
+
+                        var bulbUid = _lightSystem!.GetBulb(light, poweredLight);
 
                         if (bulbUid is null)
                         {
@@ -148,8 +156,9 @@ namespace Content.Server.Time
                         if (EntityManager.TryGetComponent(light, out PointLightComponent? pointLight) && pointLight.Enabled)
                         {
                             _pointLight.SetColor(light, GetCycleColor(comp, color), pointLight);
-                            _pointLight.SetEnergy(light, (float) CalculateLightLevel(comp), pointLight);
+                            _pointLight.SetEnergy(light, (float) CalculateLightLevel(comp) * _stationModifiers.LightEnergy, pointLight); // Dumont
                             Dirty(light, pointLight);
+
                             if (EntityManager.TryGetComponent<AppearanceComponent>(light, out var appearance))
                             {
                                 _appearance.SetData(light, PoweredLightVisuals.BulbState, PoweredLightState.On, appearance);

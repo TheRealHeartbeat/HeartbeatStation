@@ -91,7 +91,11 @@ namespace Content.Shared.Kitchen.Components
     [NetSerializable, Serializable]
     public enum MicrowaveUiKey
     {
-        Key
+        Key,
+        ElectricRangeKey, // Frontier
+        AssemblerKey, // Frontier
+        MedicalAssemblerKey, // Frontier
+		OvenKey // Dumont
     }
 
 }

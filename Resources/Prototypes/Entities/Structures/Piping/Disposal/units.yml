@@ -29,7 +29,7 @@
 - type: entity
   abstract: true
   id: DisposalUnitBase
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, BaseAutomatedMachine ] # Goob: Automation
   description: A pneumatic waste disposal unit.
   placement:
     mode: SnapgridCenter
@@ -118,7 +118,8 @@
       disposals: !type:Container
   - type: StaticPrice
     price: 70
-  - type: PowerSwitch
+  - type: TogglePower # Dumont - Power switch slop
+    altMode: true
 
 - type: entity
   id: DisposalUnit

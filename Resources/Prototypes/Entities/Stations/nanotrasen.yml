@@ -67,9 +67,14 @@
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
+    - BaseDropPodTarget # ADT
     - BaseStationMail # Nyano component, required for station mail to function
     - BaseStationWizardTarget # Goobstation
     - BaseStationEconomy # Gabystation
+    # Dumont changes start
+    - BaseStationReport
+    - BaseStationTraits
+    # Dumont end
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

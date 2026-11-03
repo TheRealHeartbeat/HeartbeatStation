@@ -79,10 +79,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Trauma.Common.Cargo; // Dumont
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.NameIdentifier;
+using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
@@ -95,6 +97,7 @@ using Content.Shared.Paper;
 using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
 using Content.Shared.Radio;
+using Content.Shared.PDA;
 using JetBrains.Annotations;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
@@ -191,14 +194,15 @@ public sealed partial class CargoSystem
 
         CargoBountyData bountyData = bounty.Value;
 
-        var ev = new TryGetIdentityShortInfoEvent(null, args.Actor);
-        RaiseLocalEvent(ev);
+        var InfoEv = new TryGetIdentityShortInfoEvent(null, args.Actor);
+        RaiseLocalEvent(InfoEv);
 
-        var message = Loc.GetString("bounty-skip-message", 
-            ("bounty", "ID#" + bountyData.Id), 
-            ("user", ev.Title ?? Loc.GetString("bounty-skip-unknown")));
-        
-        _radio.SendRadioMessage(uid, message, CargoRadioChannel, uid, escapeMarkup: false);
+        var message = Loc.GetString("bounty-skip-message",
+            ("bounty", "ID#" + bountyData.Id),
+            ("user", InfoEv.Title ?? Loc.GetString("bounty-skip-unknown")));
+
+        var ev = new PdaNotificationEvent(message, "CargoDepartment", false, _station.GetOwningStation(uid)); // Dumont
+        RaiseLocalEvent(ev);
 
         FillBountyDatabase(station);
         db.NextSkipTime = Timing.CurTime + db.SkipDelay;
@@ -226,7 +230,11 @@ public sealed partial class CargoSystem
                 ("item", Loc.GetString(entry.Name)))}");
             msg.PushNewline();
         }
-        msg.AddMarkupOrThrow(Loc.GetString("bounty-console-manifest-reward", ("reward", prototype.Reward)));
+        // Dumont changes start
+        var ev = new ModifyBountyRewardEvent(prototype.Reward);
+        RaiseLocalEvent(stationId, ref ev);
+        msg.AddMarkupOrThrow(Loc.GetString("bounty-console-manifest-reward", ("reward", ev.Reward)));
+        // Dumont end
         _paperSystem.SetContent((uid, paper), msg.ToMarkup());
     }
 
@@ -260,7 +268,11 @@ public sealed partial class CargoSystem
         args.Handled = true;
 
         component.Calculating = true;
-        args.Price = bountyPrototype.Reward - _pricing.GetPrice(container.Owner);
+        // Dumont changes start
+        var ev = new ModifyBountyRewardEvent(bountyPrototype.Reward);
+        RaiseLocalEvent(station, ref ev);
+        args.Price = ev.Reward - _pricing.GetPrice(container.Owner);
+        // Dumont end
         component.Calculating = false;
     }
 
@@ -531,7 +543,11 @@ public sealed partial class CargoSystem
             return false;
 
         _nameIdentifier.GenerateUniqueName(uid, BountyNameIdentifierGroup, out var randomVal);
-        var newBounty = new CargoBountyData(bounty, randomVal);
+        // Dumont changes start
+        var ev = new ModifyBountyRewardEvent(bounty.Reward);
+        RaiseLocalEvent(uid, ref ev);
+        var newBounty = new CargoBountyData(bounty, randomVal, ev.Reward);
+        // Dumont end
         // This bounty id already exists! Probably because NameIdentifierSystem ran out of ids.
         if (component.Bounties.Any(b => b.Id == newBounty.Id))
         {
@@ -539,7 +555,7 @@ public sealed partial class CargoSystem
             Log.Warning("Failed to add bounty {ID} because another one with the same ID already existed!", newBounty.Id);
             return false;
         }
-        component.Bounties.Add(new CargoBountyData(bounty, randomVal));
+        component.Bounties.Add(newBounty); // Dumont
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"Added bounty \"{bounty.ID}\" (id:{component.TotalBounties}) to station {ToPrettyString(uid)}");
         component.TotalBounties++;
         return true;
